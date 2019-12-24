@@ -359,7 +359,7 @@ abstract class Server
                 $processBuilder->setEnv(array('OPTIONS' => json_encode($this->options)));
             }
 
-            $process = $processBuilder->getProcess();
+            $process = $processBuilder;
         }
         $this->process = $process;
 
