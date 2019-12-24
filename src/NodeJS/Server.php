@@ -349,15 +349,14 @@ abstract class Server
                 $this->nodeBin,
                 $this->serverPath,
             ));
-            $processBuilder->setEnv('HOST', $this->host)
-                ->setEnv('PORT', $this->port);
+            $processBuilder->setEnv(array('HOST' => $this->host, 'PORT' => $this->port));
 
             if (!empty($this->nodeModulesPath)) {
-                $processBuilder->setEnv('NODE_PATH', $this->nodeModulesPath);
+                $processBuilder->setEnv(array('NODE_PATH' => $this->nodeModulesPath));
             }
 
             if (!empty($this->options)) {
-                $processBuilder->setEnv('OPTIONS', json_encode($this->options));
+                $processBuilder->setEnv(array('OPTIONS' => json_encode($this->options)));
             }
 
             $process = $processBuilder->getProcess();
